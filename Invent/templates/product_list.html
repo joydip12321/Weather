@@ -1,0 +1,50 @@
+{% extends "base_side.html" %} {% block start %}
+
+<div class="container mt-5">
+  <form
+    class="col-40 mx-auto card p-3 shadow-1g"
+    method="POST"
+    enctype="multipart/form-data"
+    style="background-color: rgb(236, 160, 236);"
+
+  >
+    {% csrf_token %}
+    {% if messages %}
+    <div class="alert alert-primary" role="alert" >
+      {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+        </div>
+    {% endif %}
+    <table class="table" style="width: 100%;">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Product Description</th>
+          <th scope="col">Product Quantity</th>
+          <th scope="col">Room</th>
+          <th scope="col">Category</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in product %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ product.product_name }}</td>
+          <td>{{ product.product_des }}</td>
+          <td>{{ product.product_quantity }}</td>
+          <td>{{ product.room_no }}</td>
+          <td>{{ product.category_name }}</td>
+          <td>
+            <a href="/delete_product/{{product.id}}" class="btn btn-danger">Delete</a>
+            <a href="/update_product/{{product.id}}" class="btn btn-success">Update</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+{% endblock %}

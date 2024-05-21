@@ -1,0 +1,16 @@
+{% extends "base_side.html" %} {% block start %}
+
+ 
+
+<div class="container mt-5">
+  <form
+    method="POST"
+    enctype="multipart/form-data"
+
+  >
+    {% csrf_token %}
+    <div class="text-center">
+        <h2 style="color:black;">Welcome to Inventory Management System</h2>
+      </div>   
+</div>
+{% endblock %}

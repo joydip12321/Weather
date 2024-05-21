@@ -1,0 +1,63 @@
+{% extends "base_side.html" %} {% block start %}
+
+<div class="container mt-5">
+  <form
+    class="col-40 mx-auto card p-3 shadow-1g"
+    method="POST"
+    enctype="multipart/form-data"
+    style="background-color: rgb(236, 160, 236);"
+
+  >
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dashboard</title>
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+          }
+  
+          .dashboard {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              grid-gap: 20px;
+              padding: 20px;
+          }
+  
+          .dashboard-item {
+              background-color: #26978c;
+              padding: 20px;
+              border-radius: 8px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+      </style>
+  </head>
+  <body>
+  
+      <div class="dashboard">
+          <div class="dashboard-item">
+              <h2>Total Product,s Quantity</h2>
+              <p>{{sum}}</p>
+          </div>
+          <div class="dashboard-item">
+              <h2>Product</h2>
+              <p>{{product_quantity}}</p>
+
+          </div>
+          <div class="dashboard-item">
+              <h2>Category</h2>
+              <p>{{category_quantity}}</p>
+          </div>
+          <div class="dashboard-item">
+              <h2>Room</h2>
+              <p>{{room_quantity}}</p>
+          </div>
+      </div>
+  
+ 
+  
+   </div>
+{% endblock %}

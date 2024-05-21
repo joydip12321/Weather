@@ -1,0 +1,44 @@
+{% extends "base_side.html" %} {% block start %}
+
+
+<div class="container mt-5">
+  <form
+    class="col-10 mx-auto card p-3 shadow-1g"
+    method="POST"
+    enctype="multipart/form-data"
+    style="background-color: rgb(236, 160, 236);"
+
+  >
+    {% csrf_token %}
+    {% if messages %}
+    <div class="alert alert-primary" role="alert" >
+      {% for message in messages %}
+      {{ message }}
+      {% endfor %}
+
+        </div>
+    {% endif %}
+    <table class="table" style="width: 100%;">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Content</th>
+          <th scope="col">Time and Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for message in message %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+  
+          <td>{{ message.content }}</td>
+          <td>
+            {{message.timestamp}}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+{% endblock %}
